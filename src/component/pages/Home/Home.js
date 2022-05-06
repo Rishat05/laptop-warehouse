@@ -1,9 +1,15 @@
 import React from 'react';
+import Banner from '../Banner/Banner';
+
+import CountOfView from '../CountOfView/CountOfView';
+
 
 const Home = () => {
     return (
-        <div>
-            <h2>this is home</h2>
+        <div className='container'>
+            <Banner></Banner>
+            <CountOfView></CountOfView>
+
         </div>
     );
 };

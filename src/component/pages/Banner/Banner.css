@@ -1,0 +1,13 @@
+.banner-img img {
+    width: 100%;
+    height: 500px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 990px) {
+    .banner-img img {
+        height: auto;
+        margin-top: 20px;
+    }
+}
