@@ -31,8 +31,8 @@ const Header = () => {
                     {
                         user && <NavLink className={({ isActive }) => isActive ? "active-link" : "link"} to='/myitem'>My-Item</NavLink>
 
-                    }
-                    {user ? (
+                    } */}
+                    {/* {user ? (
                         <NavLink style={{ 'textDecoration': 'none' }} onClick={() => signOut(auth)} className={({ isActive }) => isActive ? "active-link" : "link"}
                             to="/login"
                         >
