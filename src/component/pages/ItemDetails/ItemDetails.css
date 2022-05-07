@@ -1,0 +1,32 @@
+.item-details {
+    margin-left: 40%;
+    width: 450px;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+}
+
+.single-item-img img {
+    width: 300px;
+    height: 250px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.single-item-text {
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 95%;
+}
+
+@media screen and (max-width:700px) {
+    .single-item-img img {
+        width: 80%;
+    }
+
+    .item-details {
+        margin-left: 10px;
+        margin-right: 5px;
+        width: 95%;
+    }
+}
