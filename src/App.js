@@ -9,6 +9,7 @@ import NotFoundPage from './component/pages/NotFoundPage/NotFoundPage';
 import Signup from './component/Auth/Signup/Signup';
 import RequireAuth from './component/Auth/RequireAuth/RequireAuth';
 import ItemDetails from './component/pages/ItemDetails/ItemDetails';
+import ManageInventory from './component/pages/ManageInventory/ManageInventory';
 function App() {
   return (
 
@@ -22,6 +23,7 @@ function App() {
             <ItemDetails></ItemDetails>
           </RequireAuth>
         }></Route>
+        <Route path='/manageInventory' element={<ManageInventory></ManageInventory>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
         <Route path='*' element={<NotFoundPage></NotFoundPage>}></Route>
