@@ -21,7 +21,7 @@ const Header = () => {
                     <NavLink className={({ isActive }) => isActive ? "active-link" : "link"} to='/blogs'>Blogs</NavLink>
                     <NavLink className={({ isActive }) => isActive ? "active-link" : "link"} to='/about'>About</NavLink>
 
-                    {/* {
+                    {
                         user && <NavLink className={({ isActive }) => isActive ? "active-link" : "link"} to='/additem'>Add-Item</NavLink>
                     }
                     {
@@ -31,8 +31,8 @@ const Header = () => {
                     {
                         user && <NavLink className={({ isActive }) => isActive ? "active-link" : "link"} to='/myitem'>My-Item</NavLink>
 
-                    } */}
-                    {/* {user ? (
+                    }
+                    {user ? (
                         <NavLink style={{ 'textDecoration': 'none' }} onClick={() => signOut(auth)} className={({ isActive }) => isActive ? "active-link" : "link"}
                             to="/login"
                         >
@@ -45,7 +45,7 @@ const Header = () => {
                         </NavLink>
                     )
 
-                    } */}
+                    }
 
                 </nav>
 
