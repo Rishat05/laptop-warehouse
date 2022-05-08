@@ -1,6 +1,16 @@
-# Getting Started with Create React App
+# Rishat Laptop Warehouse
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ https://rishat-laptop-store.web.app/
+
+ # Rishat laptop warehouse is a good performance website.Here any dealer can signup.If they loggedin then he can stock or delete  a item .And he can see all inventories.
+
+ * Inventory item 
+ * Manage Inventory
+ * Add Item
+ * Delete Item
+ * Signup
+ * Sign in
+ * Show single item details
 
 ## Available Scripts
 

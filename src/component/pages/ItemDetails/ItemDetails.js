@@ -4,17 +4,14 @@ import './ItemDetails.css';
 const ItemDetails = () => {
     const { itemId } = useParams();
     const [item, setItem] = useState({});
-    const { quantity } = item;
     useEffect(() => {
-        // const url = `http://localhost:5000/item/${itemId}`;
-        // fetch(url)
-        fetch(`http://localhost:5000/item/${itemId}`)
+        fetch(`https://stormy-island-90522.herokuapp.com/item/${itemId}`)
             .then(res => res.json())
             .then(data => setItem(data));
     }, [itemId]);
 
 
-
+    // deliverd 
     const handleQuantity = () => {
         const { quantity, ...rest } = item;
         let newQuantity = quantity - 1;
@@ -26,8 +23,8 @@ const ItemDetails = () => {
             setItem(newItem);
 
             let updateUser = { newQuantity };
-            console.log(updateUser, newQuantity);
-            const url = `http://localhost:5000/item/${itemId}`;
+
+            const url = `https://stormy-island-90522.herokuapp.com/item/${itemId}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -37,16 +34,13 @@ const ItemDetails = () => {
             })
                 .then(res => res.json())
                 .then(result => {
-                    console.log(result);
-                    alert('Item update successfully!!!');
+                    // alert('Item update successfully!!!');
 
                 });
-
         }
-
-
-
     }
+
+    // restock
     const handleAddQuantity = (e) => {
         e.preventDefault();
         const { quantity, ...rest } = item;
@@ -55,11 +49,11 @@ const ItemDetails = () => {
         let newQuantity = addNumber + oldQuantity;
         const newAddItem = { ...rest, quantity: newQuantity };
         setItem(newAddItem);
-        console.log("remove -1 : ", e.target.name.value, addNumber, newQuantity, oldQuantity);
+        e.target.reset();
 
+        //update in database
         let updateUser = { newQuantity };
-        console.log(updateUser, newQuantity);
-        const url = `http://localhost:5000/item/${itemId}`;
+        const url = `https://stormy-island-90522.herokuapp.com/item/${itemId}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -69,7 +63,6 @@ const ItemDetails = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
                 alert('Item update successfully!!!');
 
             });

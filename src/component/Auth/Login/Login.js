@@ -1,3 +1,4 @@
+import axios from "axios";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
@@ -56,6 +57,7 @@ const Login = () => {
         signInWithEmail(userInfo.email, userInfo.password);
 
     }
+
     //password reset show in toast
     const handlePasswordReset = () => {
         sendPasswordResetEmail(auth, userInfo.email)
@@ -70,9 +72,33 @@ const Login = () => {
 
     useEffect(() => {
         if (user) {
-            navigate(from);
+            fetch('https://stormy-island-90522.herokuapp.com/login', {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: userInfo.email
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    localStorage.setItem('accessToken', data.token);
+                    navigate(from);
+                });
+
+
         }
     }, [user]);
+
+    useEffect(() => {
+        if (googleUser) {
+            //navigate(from);
+            console.log(googleUser.user.email, googleUser.user.displayName, googleUser);
+        }
+    }, [googleUser]);
+
+
 
     //error show in toast
     useEffect(() => {

@@ -12,14 +12,13 @@ const Header = () => {
 
             <div className='nav-link container'>
                 <div className='title'>
-                    <p className='full-site-title'><span className='site-title'>Rishat Laptop </span>Store</p>
+                    <p className='full-site-title'><span className='site-title'>Rishat Laptop </span>Warehouse</p>
                 </div>
 
                 <nav className="link-container">
                     <NavLink className={({ isActive }) => isActive ? "active-link" : "link"} to='/home'>Home</NavLink>
 
                     <NavLink className={({ isActive }) => isActive ? "active-link" : "link"} to='/blogs'>Blogs</NavLink>
-                    <NavLink className={({ isActive }) => isActive ? "active-link" : "link"} to='/about'>About</NavLink>
 
                     {
                         user && <NavLink className={({ isActive }) => isActive ? "active-link" : "link"} to='/additem'>Add-Item</NavLink>
