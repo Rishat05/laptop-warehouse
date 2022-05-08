@@ -2,7 +2,7 @@
 
  https://rishat-laptop-store.web.app/
 
- # Rishat laptop warehouse is a good performance website.Here any dealer can signup.If they loggedin then he can stock or delete  a item .And he can see all inventories.
+  Rishat laptop warehouse is a good performance website.Here any dealer can signup.If they loggedin then he can stock or delete  a item .And he can see all inventories.
 
  * Inventory item 
  * Manage Inventory
