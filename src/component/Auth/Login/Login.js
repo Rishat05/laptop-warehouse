@@ -93,10 +93,26 @@ const Login = () => {
 
     useEffect(() => {
         if (googleUser) {
-            //navigate(from);
-            console.log(googleUser.user.email, googleUser.user.displayName, googleUser);
+            fetch('https://stormy-island-90522.herokuapp.com/login', {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: googleUser.user.email
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    localStorage.setItem('accessToken', data.token);
+                    navigate(from);
+                });
+
+
         }
     }, [googleUser]);
+
+
 
 
 
