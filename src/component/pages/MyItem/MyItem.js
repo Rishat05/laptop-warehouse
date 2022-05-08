@@ -40,7 +40,7 @@ const MyItem = () => {
                             key={item._id}
                             item={item}
                         ></Item>
-                        <button className='btn btn-danger ms-4' onClick={() => handleDelete(item._id)}>Delete</button>
+                        <button className='btn btn-danger ms-4 mb-4' onClick={() => handleDelete(item._id)}>Delete</button>
                     </div>
 
                     )
