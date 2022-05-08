@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-
+import './ManageInventory.css';
 
 const ManageInventory = () => {
     const [items, setItem] = useState([]);
@@ -33,14 +33,18 @@ const ManageInventory = () => {
     }
     return (
         <div className='mb-3'>
+
             <Link to='/addItem'>
-                <button className='btn btn-info mx-auto'>Add New Item</button>
+                <button className='btn btn-info my-add-btn mt-2'>Add New Item</button>
             </Link>
-            <div className="row">
-                <h1 className='text-primary text-center mt-5 mb-2'>Inventory Items</h1>
+
+
+            <div>
+                <h1 className='text-primary text-center mt-2 mb-4'>Inventory Items</h1>
             </div>
-            <div className='ms-2 me-2'>
-                <Table striped bordered hover responsive='sm'>
+
+            <div className='ms-1 me-1'>
+                <Table striped bordered hover responsive>
                     <thead>
                         <tr>
                             <th>id</th>

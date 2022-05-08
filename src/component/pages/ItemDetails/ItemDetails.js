@@ -4,6 +4,7 @@ import './ItemDetails.css';
 const ItemDetails = () => {
     const { itemId } = useParams();
     const [item, setItem] = useState({});
+    const [sold, setSold] = useState('');
     useEffect(() => {
         fetch(`https://stormy-island-90522.herokuapp.com/item/${itemId}`)
             .then(res => res.json())
@@ -15,35 +16,45 @@ const ItemDetails = () => {
     const handleQuantity = () => {
         const { quantity, ...rest } = item;
         let newQuantity = quantity - 1;
-        if (newQuantity < 0) {
-            alert('There is empty quantity..!!');
+        if (newQuantity < 1) {
+            newQuantity = 0;
+            setSold('sold out');
         }
+
+
         else {
-            const newItem = { ...rest, quantity: newQuantity };
-            setItem(newItem);
-
-            let updateUser = { newQuantity };
-
-            const url = `https://stormy-island-90522.herokuapp.com/item/${itemId}`;
-            fetch(url, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(updateUser)
-            })
-                .then(res => res.json())
-                .then(result => {
-                    // alert('Item update successfully!!!');
-
-                });
+            //newQuantity = newQuantity;
+            setSold('stock in');
         }
+        const newItem = { ...rest, quantity: newQuantity };
+        setItem(newItem);
+
+        let updateUser = { newQuantity };
+
+        const url = `https://stormy-island-90522.herokuapp.com/item/${itemId}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updateUser)
+        })
+            .then(res => res.json())
+            .then(result => {
+                // alert('Item update successfully!!!');
+
+            });
+        // }
     }
 
     // restock
     const handleAddQuantity = (e) => {
         e.preventDefault();
+        setSold('stock in');
         const { quantity, ...rest } = item;
+        if (e.target.name.value === '') {
+            e.target.name.value = 0;
+        }
         let addNumber = parseInt(e.target.name.value);
         let oldQuantity = parseInt(quantity);
         let newQuantity = addNumber + oldQuantity;
@@ -80,7 +91,7 @@ const ItemDetails = () => {
                 <p>Price: {item.price}</p>
                 <p>Quantity: {item.quantity}</p>
                 <p>Supplier-Name: {item.supplierName}</p>
-                <p>Sold</p>
+                <p>{sold}</p>
                 <button onClick={handleQuantity} className='btn btn-primary'>Delivered</button>
                 <br />
                 <form className='mt-2 mb-3' onSubmit={handleAddQuantity}>

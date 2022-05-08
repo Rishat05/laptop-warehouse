@@ -32,7 +32,7 @@ const MyItem = () => {
     return (
         <div>
 
-            <h2>my item: {items.length}</h2>
+            <h2 className='text-center'>my item: {items.length}</h2>
             <div className="item-show">
                 {
                     items.map(item => <div key={item._id}>

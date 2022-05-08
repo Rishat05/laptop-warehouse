@@ -1,0 +1,10 @@
+.my-add-btn {
+    margin-left: 40%;
+}
+
+@media screen and (max-width:700px) {
+    .my-add-btn {
+        margin-left: 30%;
+    }
+
+}
